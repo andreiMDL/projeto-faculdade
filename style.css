@@ -1,571 +1,620 @@
+/* Reset CSS: Aplica estilos básicos para remover margens, paddings e decorações padrão do navegador */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
-  border: none;
-  outline: none;
-  scroll-behavior: smooth;
-  font-family: "Poppins", sans-serif;
-  color: inherit;
+  margin: 0; /* Remove margem padrão */
+  padding: 0; /* Remove padding padrão */
+  box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura/altura total */
+  text-decoration: none; /* Remove sublinhado de links */
+  border: none; /* Remove bordas padrão */
+  outline: none; /* Remove outline em elementos focados */
+  scroll-behavior: smooth; /* Adiciona rolagem suave ao navegar para âncoras */
+  font-family: "Poppins", sans-serif; /* Define a fonte padrão como Poppins */
+  color: inherit; /* Garante que a cor do texto seja herdada do elemento pai */
 }
 
+/* Definição de variáveis CSS para cores e gradientes, facilitando a manutenção */
 :root {
-  --bg-color: #080808;
-  --secondary-bg-color: #2b2b2b;
-  --text-color: white;
-  --main-color: #00ffee;
-  --gradient-color: linear-gradient(45deg, #00ffb3 50%, black 60% 90%, #0084ff 110%);
+  --bg-color: #080808; /* Cor de fundo principal */
+  --secondary-bg-color: #2b2b2b; /* Cor de fundo secundária */
+  --text-color: white; /* Cor padrão do texto */
+  --main-color: #00ffee; /* Cor principal/destaque */
+  --gradient-color: linear-gradient(45deg, #00ffb3 50%, black 60% 90%, #0084ff 110%); /* Gradiente usado em alguns elementos */
 }
 
+/* Estilos para o elemento HTML raiz */
 html {
-  font-size: 65%;
-  overflow-x: hidden;
+  font-size: 65%; /* Define o tamanho da fonte base para cálculos REM */
+  overflow-x: hidden; /* Esconde a barra de rolagem horizontal se o conteúdo transbordar */
 }
 
+/* Estilos para o corpo da página */
 body {
-  background: var(--bg-color);
-  color: var(--text-color);
-  background-image: url(assets/bg-green.png);
-  background-size: cover;
+  background: var(--bg-color); /* Aplica a cor de fundo principal */
+  color: var(--text-color); /* Define a cor padrão do texto */
+  background-image: url(assets/bg-green.png); /* Define uma imagem de fundo */
+  background-size: cover; /* Garante que a imagem de fundo cubra toda a área */
 }
 
+/* Estilo para parágrafos */
 p {
-  font-size: 1.8rem !important;
+  font-size: 1.8rem !important; /* Define o tamanho da fonte para parágrafos, com !important para sobrepor outros estilos */
 }
 
+/* Estilos para o cabeçalho fixo da página */
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 2rem 12% 2rem;
-  background: rgb(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 5;
+  position: fixed; /* Fixa o cabeçalho na tela */
+  top: 0; /* Posiciona no topo */
+  left: 0; /* Posiciona à esquerda */
+  width: 100%; /* Ocupa 100% da largura */
+  padding: 2rem 12% 2rem; /* Padding interno */
+  background: rgb(0, 0, 0, 0.3); /* Fundo semi-transparente */
+  backdrop-filter: blur(10px); /* Efeito de desfoque no que está atrás do cabeçalho */
+  display: flex; /* Usa flexbox para layout */
+  justify-content: space-between; /* Distribui itens com espaço entre eles */
+  align-items: center; /* Alinha itens verticalmente ao centro */
+  z-index: 5; /* Garante que o cabeçalho fique acima de outros elementos */
 }
 
+/* Estilos para o logotipo */
 .logo {
-  font-size: 3rem;
-  color: var(--text-color);
-  font-weight: 800;
-  cursor: pointer;
-  transition: 0.3s ease;
+  font-size: 3rem; /* Tamanho da fonte do logotipo */
+  color: var(--text-color); /* Cor do texto */
+  font-weight: 800; /* Peso da fonte */
+  cursor: pointer; /* Muda o cursor para indicar clicável */
+  transition: 0.3s ease; /* Transição suave para efeitos de hover */
 }
 
+/* Efeitos de hover para o logotipo */
 .logo:hover {
-  transform: scale(1.1);
-  text-shadow: 0 0 25px var(--main-color);
+  transform: scale(1.1); /* Aumenta ligeiramente o tamanho */
+  text-shadow: 0 0 25px var(--main-color); /* Adiciona uma sombra de texto com a cor principal */
 }
 
+/* Estilos para os links da barra de navegação */
 .navbar a {
-  font-size: 1.8rem;
-  color: var(--text-color);
-  margin-left: 4rem;
-  font-weight: 500;
-  transition: 0.3s ease;
-  border-bottom: 3px solid transparent;
-  
+  font-size: 1.8rem; /* Tamanho da fonte */
+  color: var(--text-color); /* Cor do texto */
+  margin-left: 4rem; /* Margem à esquerda entre os links */
+  font-weight: 500; /* Peso da fonte */
+  transition: 0.3s ease; /* Transição suave para efeitos de hover */
+  border-bottom: 3px solid transparent; /* Borda inferior transparente para efeito de hover */
 }
 
+/* Efeitos de hover e para o link ativo na barra de navegação */
 .navbar a:hover,
 .navbar a.active {
-  color: var(--main-color);
-  border-bottom: 3px solid var(--main-color);
-  background-image: linear-gradient(35deg, #00ffb3, #0084ff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  color: var(--main-color); /* Muda a cor do texto para a cor principal */
+  border-bottom: 3px solid var(--main-color); /* Adiciona uma borda inferior com a cor principal */
+  background-image: linear-gradient(35deg, #00ffb3, #0084ff); /* Aplica um gradiente de fundo */
+  -webkit-background-clip: text; /* Clipa o fundo ao texto (para navegadores WebKit) */
+  background-clip: text; /* Clipa o fundo ao texto */
+  -webkit-text-fill-color: transparent; /* Torna o texto transparente para que o gradiente de fundo apareça */
+  color: transparent; /* Fallback para navegadores que não suportam -webkit-text-fill-color */
 }
 
+/* Estilos para o ícone de menu (hambúrguer) */
 #menu-icon {
-  font-size: 3.6rem;
-  color: var(--main-color);
-  display: none;
-  cursor: pointer;
-  margin-left: auto;
+  font-size: 3.6rem; /* Tamanho do ícone */
+  color: var(--main-color); /* Cor do ícone */
+  display: none; /* Inicialmente oculto (será mostrado em telas menores) */
+  cursor: pointer; /* Muda o cursor para indicar clicável */
+  margin-left: auto; /* Empurra o ícone para a direita */
 }
 
+/* Estilos gerais para todas as seções */
 section {
-  min-height: 80vh;
-  padding: 15rem 12% 4rem;
-  animation: image-appear linear backwards;
-      animation-timeline: view();
-      animation-range: 0px 450px;
+  min-height: 80vh; /* Altura mínima de 80% da viewport */
+  padding: 15rem 12% 4rem; /* Padding interno */
+  animation: image-appear linear backwards; /* Aplica a animação 'image-appear' */
+  animation-timeline: view(); /* Gatilho da animação baseado na visibilidade do elemento na viewport */
+  animation-range: 0px 450px; /* Faixa de rolagem para a animação */
 }
 
+/* Estilos para a seção Home */
 .home {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15rem;
+  display: flex; /* Usa flexbox para layout */
+  align-items: center; /* Alinha itens verticalmente ao centro */
+  justify-content: center; /* Alinha itens horizontalmente ao centro */
+  gap: 15rem; /* Espaçamento entre os itens flex */
 }
 
+/* Estilos para o conteúdo textual da seção Home */
 .home-content {
-  flex-direction: column;
-  align-items: baseline;
-  text-align: left;
-  justify-content: center;
-  margin-top: 3rem;
+  flex-direction: column; /* Organiza itens em coluna */
+  align-items: baseline; /* Alinha itens ao início da linha base */
+  text-align: left; /* Alinha o texto à esquerda */
+  justify-content: center; /* Alinha o conteúdo verticalmente ao centro */
+  margin-top: 3rem; /* Margem superior */
 }
 
+/* Estilos para elementos com destaque (cores de gradiente) */
 .highlight {
-  background-image: linear-gradient(35deg, #00ffb3, #0084ff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  background-image: linear-gradient(35deg, #00ffb3, #0084ff); /* Aplica gradiente de fundo */
+  -webkit-background-clip: text; /* Clipa o fundo ao texto */
+  background-clip: text; /* Clipa o fundo ao texto */
+  -webkit-text-fill-color: transparent; /* Torna o texto transparente para mostrar o gradiente */
+  color: transparent; /* Fallback */
 }
 
+/* Estilos para o 'span' dentro do logotipo (parte destacada) */
 .logo span {
-  color: var(--main-color);
+  color: var(--main-color); /* Aplica a cor principal */
 }
 
+/* Estilos para o subtítulo h3 dentro da seção Home */
 .home-content h3 {
-  margin-bottom: 2rem;
-  margin-top: 1rem;
-  font-size: 3.5rem;
+  margin-bottom: 2rem; /* Margem inferior */
+  margin-top: 1rem; /* Margem superior */
+  font-size: 3.5rem; /* Tamanho da fonte */
 }
 
+/* Estilos para o título h1 dentro da seção Home */
 .home-content h1 {
-  font-size: 7rem;
-  font-weight: 700;
-  margin-top: 1.5rem;
-  line-height: 1;
+  font-size: 7rem; /* Tamanho da fonte */
+  font-weight: 700; /* Peso da fonte */
+  margin-top: 1.5rem; /* Margem superior */
+  line-height: 1; /* Altura da linha */
 }
 
+/* Estilos para a div que contém a imagem de perfil */
 .home-img {
-  border-radius: 50%;
+  border-radius: 50%; /* Faz a div ter formato circular */
 }
 
+/* Estilos para a imagem de perfil dentro da seção Home */
 .home-img img {
-  position: relative;
-  top: 3rem;
-  width: 32vw;
-  border-radius: 50%;
-  box-shadow:
-  0 0 15px rgb(0, 0, 0);
-  border: 2px solid var(--secondary-bg-color);
-  cursor: pointer;
-  transition: 0.4s ease-in-out;
+  position: relative; /* Posição relativa para ajuste de top */
+  top: 3rem; /* Deslocamento do topo */
+  width: 32vw; /* Largura baseada na largura da viewport */
+  border-radius: 50%; /* Faz a imagem ter formato circular */
+  box-shadow: 0 0 15px rgb(0, 0, 0); /* Sombra suave */
+  border: 2px solid var(--secondary-bg-color); /* Borda sólida */
+  cursor: pointer; /* Muda o cursor para indicar clicável */
+  transition: 0.4s ease-in-out; /* Transição suave para efeitos de hover */
 }
 
+/* Efeito de hover para a imagem de perfil */
 .home-img img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px var(--main-color);
+  transform: scale(1.05); /* Aumenta ligeiramente o tamanho */
+  box-shadow: 0 0 10px var(--main-color); /* Adiciona sombra com a cor principal */
 }
 
+/* Estilos para o parágrafo de texto na seção Home */
 .home-content p {
-  font-size: 1.5rem;
-  font-weight: 500;
-  line-height: 1.8;
-  max-width: 1000px;
+  font-size: 1.5rem; /* Tamanho da fonte */
+  font-weight: 500; /* Peso da fonte */
+  line-height: 1.8; /* Altura da linha */
+  max-width: 1000px; /* Largura máxima */
 }
 
+/* Estilos para os ícones sociais */
 .social-icons a {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 4.5rem;
-  height: 4.5rem;
-  background: transparent;
-  border: 2px solid var(--main-color);
-  font-size: 2.5rem;
-  border-radius: 50%;
-  color: var(--main-color);
-  margin: 3rem 1.5rem 3rem 0;
-  transition: 0.3s ease-in-out;
-  background-image: linear-gradient(35deg, #00ffb3, #0084ff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  display: inline-flex; /* Usa flexbox para centralizar o ícone dentro do link */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  width: 4.5rem; /* Largura fixa */
+  height: 4.5rem; /* Altura fixa */
+  background: transparent; /* Fundo transparente */
+  border: 2px solid var(--main-color); /* Borda com a cor principal */
+  font-size: 2.5rem; /* Tamanho do ícone */
+  border-radius: 50%; /* Torna o contêiner circular */
+  color: var(--main-color); /* Cor do ícone */
+  margin: 3rem 1.5rem 3rem 0; /* Margens */
+  transition: 0.3s ease-in-out; /* Transição suave para efeitos de hover */
+  background-image: linear-gradient(35deg, #00ffb3, #0084ff); /* Gradiente para o texto do ícone */
+  -webkit-background-clip: text; /* Clipa o gradiente ao texto */
+  background-clip: text; /* Clipa o gradiente ao texto */
+  -webkit-text-fill-color: transparent; /* Torna o texto transparente */
+  color: transparent; /* Fallback */
 }
 
+/* Efeito de hover para os ícones sociais */
 .social-icons a:hover {
-  color: var(--text-color);
-  transform: scale(1.3) translateY(-5px);
-  box-shadow: 0 0 25px var(--main-color);
-  background-color: var;
+  color: var(--text-color); /* Muda a cor do ícone */
+  transform: scale(1.3) translateY(-5px); /* Aumenta e move ligeiramente para cima */
+  box-shadow: 0 0 25px var(--main-color); /* Adiciona sombra com a cor principal */
+  background-color: var; /* Declaração incompleta (provavelmente deveria ser uma cor ou variável) */
 }
 
+/* Estilos para botões gerais */
 .btn {
-  display: inline-block;
-  padding: 1rem 2.8rem;
-  background-image: linear-gradient(35deg, #00ffb3, #0084ff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  box-shadow: 0 0 5px var(--main-color);
-  border: 2px solid var(--main-color);
-  border-radius: 4rem;
-  font-size: 1.6rem;
-  color: black;
-
-  letter-spacing: 0.1rem;
-  font-weight: 600;
-  transition: 0.3s ease-in-out;
-  cursor: pointer;
+  display: inline-block; /* Elemento de bloco, mas alinhado em linha */
+  padding: 1rem 2.8rem; /* Padding interno */
+  background-image: linear-gradient(35deg, #00ffb3, #0084ff); /* Gradiente de fundo */
+  -webkit-background-clip: text; /* Clipa o gradiente ao texto */
+  background-clip: text; /* Clipa o gradiente ao texto */
+  -webkit-text-fill-color: transparent; /* Torna o texto transparente */
+  color: transparent; /* Fallback */
+  box-shadow: 0 0 5px var(--main-color); /* Sombra suave */
+  border: 2px solid var(--main-color); /* Borda com a cor principal */
+  border-radius: 4rem; /* Borda arredondada */
+  font-size: 1.6rem; /* Tamanho da fonte */
+  color: black; /* Cor do texto (originalmente, antes do gradiente) */
+  letter-spacing: 0.1rem; /* Espaçamento entre letras */
+  font-weight: 600; /* Peso da fonte */
+  transition: 0.3s ease-in-out; /* Transição suave para efeitos de hover */
+  cursor: pointer; /* Muda o cursor para indicar clicável */
 }
 
+/* Efeito de hover para botões */
 .btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px var(--main-color);
-} 
+  transform: scale(1.05); /* Aumenta ligeiramente o tamanho */
+  box-shadow: 0 0 25px var(--main-color); /* Adiciona sombra maior com a cor principal */
+}
 
+/* Estilos para o grupo de botões */
 .btn-group {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
+  display: flex; /* Usa flexbox para layout */
+  align-items: center; /* Alinha itens verticalmente ao centro */
+  gap: 1.5rem; /* Espaçamento entre os botões */
 }
 
+/* Estilos específicos para o primeiro botão dentro de um grupo */
 .btn-group a:nth-of-type(1) {
-  background-color: var(--main-color);
-  color: black;
-  border: 2px solid var(--main-color);
-  box-shadow: 0 0 10px var(--main-color);
+  background-color: var(--main-color); /* Cor de fundo */
+  color: black; /* Cor do texto */
+  border: 2px solid var(--main-color); /* Borda */
+  box-shadow: 0 0 10px var(--main-color); /* Sombra */
 }
 
+/* Estilos para a div que envolve o texto animado dentro do h3 */
 h3 div {
-  display: inline-block;
-  overflow: hidden;
-  height: 5rem;
-  vertical-align: top;
+  display: inline-block; /* Exibição em linha, mas com propriedades de bloco */
+  overflow: hidden; /* Esconde o conteúdo que transborda, essencial para a animação de slide */
+  height: 5rem; /* Altura fixa para o efeito de slide */
+  vertical-align: top; /* Alinhamento vertical */
 }
 
+/* Estilos para os spans dentro da div animada */
 h3 span {
-  background-image: linear-gradient(-75deg, #00ffb3, #0084ff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  display: block;
-  border: px solid red;
-  animation: slideUp 6s infinite ease;
+  background-image: linear-gradient(-75deg, #00ffb3, #0084ff); /* Gradiente de fundo */
+  -webkit-background-clip: text; /* Clipa o gradiente ao texto */
+  background-clip: text; /* Clipa o gradiente ao texto */
+  -webkit-text-fill-color: transparent; /* Torna o texto transparente */
+  color: transparent; /* Fallback */
+  display: block; /* Cada span ocupa sua própria linha para o slide */
+  border: px solid red; /* Declaração incompleta/erro (provavelmente um teste ou resquício) */
+  animation: slideUp 6s infinite ease; /* Aplica a animação 'slideUp' */
 }
 
+/* Animação Keyframes para o slide vertical do texto */
 @keyframes slideUp {
   0%, 22% {
-    transform: translateY(0);
+    transform: translateY(0); /* Posição inicial */
   }
 
   33%, 55% {
-    transform: translateY(-5.2rem);
+    transform: translateY(-5.2rem); /* Desloca para mostrar o próximo texto */
   }
   66%, 88% {
-    transform: translateY(-10.4rem);
+    transform: translateY(-10.4rem); /* Desloca para mostrar o próximo texto */
   }
   100% {
-    transform: translateY(-15.78rem);
+    transform: translateY(-15.78rem); /* Desloca para o final e reinicia */
   }
 }
 
+/* Estilos para títulos de seção */
 .heading {
-  font-size: 8rem;
-  text-align: center;
-  margin: 5rem 0;
+  font-size: 8rem; /* Tamanho da fonte */
+  text-align: center; /* Alinha o texto ao centro */
+  margin: 5rem 0; /* Margem superior e inferior */
 }
 
+/* Estilos específicos para a seção de Habilidades */
 section.skills {
-  padding: 10rem 12% 10rem;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 10rem 12% 10rem; /* Padding interno */
+  min-height: 100vh; /* Altura mínima de 100% da viewport */
+  display: flex; /* Usa flexbox para layout */
+  flex-direction: column; /* Organiza itens em coluna */
+  align-items: center; /* Alinha itens horizontalmente ao centro */
 }
 
+/* Estilos para o título da seção de Habilidades */
 .skills .heading {
-  margin-bottom: 5rem;
+  margin-bottom: 5rem; /* Margem inferior */
 }
 
+/* Estilos para a grade de tecnologias */
 .technologies {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
-  gap: 5rem;
-  max-width: 800px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 2rem;
+  display: grid; /* Usa grid para layout */
+  grid-template-columns: repeat(auto-fit, minmax(125px, 1fr)); /* Colunas responsivas */
+  gap: 5rem; /* Espaçamento entre os itens da grid */
+  max-width: 800px; /* Largura máxima */
+  width: 100%; /* Ocupa 100% da largura disponível */
+  margin: 0 auto; /* Centraliza a grid horizontalmente */
+  padding: 2rem; /* Padding interno */
 }
 
+/* Estilos para cada item individual de tecnologia */
 .tech {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1.5rem;
-  background-color: #2b2b2b65;
-  border-radius: 3rem;
-  box-shadow:
-  inset 0 0 10px var(--bg-color),
-  0 0 3px rgb(119, 119, 119);
-  border: 2px solid var(--secondary-bg-color);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border 0.3s ease-in-out;
-  border: 2 solid transparent;
-  aspect-ratio: 1 / 1;
-  animation: image-appear linear backwards;
-      animation-timeline: view();
-      animation-range: 100px 500px; 
+  display: flex; /* Usa flexbox para centralizar o ícone */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  padding: 1.5rem; /* Padding interno */
+  background-color: #2b2b2b65; /* Cor de fundo semi-transparente */
+  border-radius: 3rem; /* Borda arredondada */
+  box-shadow: inset 0 0 10px var(--bg-color), 0 0 3px rgb(119, 119, 119); /* Sombra interna e externa */
+  border: 2px solid var(--secondary-bg-color); /* Borda */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border 0.3s ease-in-out; /* Transições para efeitos de hover */
+  border: 2 solid transparent; /* Declaração incompleta (provavelmente erro) */
+  aspect-ratio: 1 / 1; /* Mantém a proporção de 1:1 (quadrado) */
+  animation: image-appear linear backwards; /* Animação 'image-appear' */
+  animation-timeline: view(); /* Gatilho da animação */
+  animation-range: 100px 500px; /* Faixa de rolagem para a animação */
 }
 
+/* Efeito de hover para os itens de tecnologia */
 .tech:hover {
-  transform: translateY(-5px) scale(1.1);
-  border: 2px solid var(--main-color)
+  transform: translateY(-5px) scale(1.1); /* Move para cima e aumenta ligeiramente */
+  border: 2px solid var(--main-color); /* Muda a cor da borda para a cor principal */
 }
 
+/* Estilos para os ícones dentro dos itens de tecnologia */
 .tech i {
-  font-size: 8rem;
+  font-size: 8rem; /* Tamanho do ícone */
 }
 
-
+/* Estilos para o título h2 na seção de contato */
 .contact h2 {
-  margin-bottom: 3rem;
-  color: white;
+  margin-bottom: 3rem; /* Margem inferior */
+  color: white; /* Cor do texto */
 }
 
+/* Estilos para o título h2 na seção de projetos */
 .projects h2 {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-top: 1.5rem; /* Margem superior */
+  margin-bottom: 1.5rem; /* Margem inferior */
 }
 
+/* Estilos específicos para a seção de Projetos */
 section.projects {
-  padding: 10rem 12% 10rem;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 10rem 12% 10rem; /* Padding interno */
+  min-height: 100vh; /* Altura mínima de 100% da viewport */
+  display: flex; /* Usa flexbox para layout */
+  flex-direction: column; /* Organiza itens em coluna */
+  align-items: center; /* Alinha itens horizontalmente ao centro */
 }
 
+/* Estilos para o título da seção de Projetos */
 .projects .heading {
-  margin-bottom: 5rem;
+  margin-bottom: 5rem; /* Margem inferior */
 }
 
+/* Estilos para o contêiner de conteúdo dos projetos */
 .projects .content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.5rem;
-  max-width: 1000px;
-  padding-inline: 2rem;
-  width: 100%;
-  margin: 0 auto;
+  display: grid; /* Usa grid para layout */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Colunas responsivas */
+  gap: 2.5rem; /* Espaçamento entre os itens da grid */
+  max-width: 1000px; /* Largura máxima */
+  padding-inline: 2rem; /* Padding horizontal */
+  width: 100%; /* Ocupa 100% da largura disponível */
+  margin: 0 auto; /* Centraliza a grid horizontalmente */
 }
 
+/* Estilos para cada cartão de projeto individual */
 .project {
-  max-width: 310px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  overflow: hidden;
-  border-radius: 2rem;
-
-  background-color: #2b2b2b65;
-  box-shadow:
-  inset 0 0 10px var(--bg-color),
-  0 0 3px rgb(119, 119, 119);
-  border: 2px solid var(--secondary-bg-color);
-
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border 0.3s ease-in-out;
-  animation: image-appear linear backwards;
-      animation-timeline: view();
-      animation-range: 100px 300px; 
+  max-width: 310px; /* Largura máxima */
+  text-align: center; /* Alinha o texto ao centro */
+  display: flex; /* Usa flexbox para layout */
+  flex-direction: column; /* Organiza itens em coluna */
+  justify-content: flex-start; /* Alinha itens ao início verticalmente */
+  align-items: center; /* Alinha itens horizontalmente ao centro */
+  overflow: hidden; /* Esconde o conteúdo que transborda */
+  border-radius: 2rem; /* Borda arredondada */
+  background-color: #2b2b2b65; /* Cor de fundo semi-transparente */
+  box-shadow: inset 0 0 10px var(--bg-color), 0 0 3px rgb(119, 119, 119); /* Sombra interna e externa */
+  border: 2px solid var(--secondary-bg-color); /* Borda sólida */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border 0.3s ease-in-out; /* Transições para efeitos de hover */
+  animation: image-appear linear backwards; /* Animação 'image-appear' */
+  animation-timeline: view(); /* Gatilho da animação */
+  animation-range: 100px 300px; /* Faixa de rolagem para a animação */
 }
 
+/* Efeito de hover para os cartões de projeto */
 .project:hover {
-  transform: translateY(-5px) scale(1.1);
-  border: 2px solid var(--main-color)
+  transform: translateY(-5px) scale(1.1); /* Move para cima e aumenta ligeiramente */
+  border: 2px solid var(--main-color); /* Muda a cor da borda para a cor principal */
 }
 
+/* Estilos para as imagens dentro dos cartões de projeto */
 .project img {
-  object-fit: cover;
-  width: 100%;
-  border-radius: 2rem;
+  object-fit: cover; /* Redimensiona a imagem para cobrir o contêiner */
+  width: 100%; /* Ocupa 100% da largura do contêiner */
+  border-radius: 2rem; /* Borda arredondada */
 }
 
+/* Estilos para o campo de input individual dentro do formulário de contato */
 .contact form .input-field {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 0;
+  width: 100%; /* Ocupa 100% da largura */
+  display: flex; /* Usa flexbox */
+  flex-direction: column; /* Organiza itens em coluna */
+  align-items: flex-start; /* Alinha itens ao início horizontalmente */
+  margin-bottom: 0; /* Margem inferior (ajustada em medias queries) */
 }
 
+/* Estilos para a caixa que agrupa os campos de input do formulário */
 .contact form .input-box {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: flex; /* Usa flexbox */
+  justify-content: center; /* Centraliza horizontalmente */
+  flex-wrap: wrap; /* Permite que os itens quebrem linha */
 }
 
+/* Estilos para inputs e textareas do formulário */
 .contact form .input-box input,
 .contact form textarea {
-  width: 100%;
-  padding: 2.5rem;
-  font-size: 1.8rem;
-  color: var(--text-color);
-  background-color: var(--secondary-bg-color);
-  border-radius: 2rem;
-  box-shadow: inset 0 0 5px rgb(0, 0, 0), 0 0 3px rgb(255, 255, 255);
-  border: 2px solid var(--secondary-bg-color);
-  margin: 1.5rem 0 0.5rem 0;
-  resize: none;
+  width: 100%; /* Ocupa 100% da largura */
+  padding: 2.5rem; /* Padding interno */
+  font-size: 1.8rem; /* Tamanho da fonte */
+  color: var(--text-color); /* Cor do texto */
+  background-color: var(--secondary-bg-color); /* Cor de fundo */
+  border-radius: 2rem; /* Borda arredondada */
+  box-shadow: inset 0 0 5px rgb(0, 0, 0), 0 0 3px rgb(255, 255, 255); /* Sombra interna e externa */
+  border: 2px solid var(--secondary-bg-color); /* Borda */
+  margin: 1.5rem 0 0.5rem 0; /* Margens */
+  resize: none; /* Desabilita o redimensionamento do textarea pelo usuário */
 }
 
+/* Estilos para o formulário de contato */
 .contact form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-  margin: 5rem auto;
-  text-align: center;
+  display: flex; /* Usa flexbox para layout */
+  align-items: center; /* Alinha itens verticalmente ao centro */
+  justify-content: center; /* Centraliza horizontalmente */
+  gap: 3rem; /* Espaçamento entre os grupos de input */
+  margin: 5rem auto; /* Margem superior e centralização horizontal */
+  text-align: center; /* Alinha o texto ao centro */
 }
 
+/* Estilos para mensagens de erro (span-required) */
 .span-required {
-  display: none;
-  font-size: 1.5rem;
-  color: #d84b57;
+  display: none; /* Inicialmente oculto */
+  font-size: 1.5rem; /* Tamanho da fonte */
+  color: #d84b57; /* Cor vermelha para erro */
 }
 
-
+/* Estilos para o botão de envio no formulário de contato */
 .contact form .btn {
-  margin-top: 2rem;
+  margin-top: 2rem; /* Margem superior */
 }
 
+/* Estilos para o rodapé */
 .footer {
-  margin-block: 5rem;
-  width: 100%;
-  padding-bottom: 3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 2rem;
+  margin-block: 5rem; /* Margem superior e inferior */
+  width: 100%; /* Ocupa 100% da largura */
+  padding-bottom: 3rem; /* Padding inferior */
+  display: flex; /* Usa flexbox para layout */
+  flex-direction: column; /* Organiza itens em coluna */
+  align-items: center; /* Alinha itens horizontalmente ao centro */
+  text-align: center; /* Alinha o texto ao centro */
+  gap: 2rem; /* Espaçamento entre os itens do rodapé */
 }
 
+/* Estilos para a div de ícones sociais no rodapé */
 .footer .social {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
+  display: flex; /* Usa flexbox para layout */
+  justify-content: center; /* Centraliza horizontalmente */
+  gap: 1.5rem; /* Espaçamento entre os ícones */
 }
 
+/* Estilos para os links de ícones sociais no rodapé */
 .footer .social a {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 3.5rem;
-  height: 3.5rem;
-  background: transparent;
-  border: 2px solid var(--main-color);
-  font-size: 1.5rem;
-  border-radius: 50%;
-  color: var(--main-color);
-  margin: 3rem 1.5rem 3rem 0;
-  transition: 0.3s ease-in-out;
-  background-image: linear-gradient(35deg, #00ffb3, #0084ff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  display: inline-flex; /* Usa flexbox para centralizar o ícone */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  width: 3.5rem; /* Largura fixa */
+  height: 3.5rem; /* Altura fixa */
+  background: transparent; /* Fundo transparente */
+  border: 2px solid var(--main-color); /* Borda com a cor principal */
+  font-size: 1.5rem; /* Tamanho do ícone */
+  border-radius: 50%; /* Torna o contêiner circular */
+  color: var(--main-color); /* Cor do ícone */
+  margin: 3rem 1.5rem 3rem 0; /* Margens */
+  transition: 0.3s ease-in-out; /* Transição suave para efeitos de hover */
+  background-image: linear-gradient(35deg, #00ffb3, #0084ff); /* Gradiente para o texto do ícone */
+  -webkit-background-clip: text; /* Clipa o gradiente ao texto */
+  background-clip: text; /* Clipa o gradiente ao texto */
+  -webkit-text-fill-color: transparent; /* Torna o texto transparente */
+  color: transparent; /* Fallback */
 }
 
+/* Efeito de hover para os ícones sociais no rodapé */
 .footer .social a:hover {
-  transform: scale(1.05);
-  box-shadow:
-    0 0 10px var(--main-color);
+  transform: scale(1.05); /* Aumenta ligeiramente o tamanho */
+  box-shadow: 0 0 10px var(--main-color); /* Adiciona sombra com a cor principal */
 }
 
+/* Estilos para a lista de links no rodapé */
 .footer .list {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2.5rem;
-  margin-top: 0;
-  padding: 0;
+  list-style: none; /* Remove marcadores de lista */
+  display: flex; /* Usa flexbox para layout */
+  justify-content: center; /* Centraliza horizontalmente */
+  flex-wrap: wrap; /* Permite que os itens quebrem linha */
+  gap: 2.5rem; /* Espaçamento entre os itens da lista */
+  margin-top: 0; /* Remove margem superior padrão */
+  padding: 0; /* Remove padding padrão */
 }
 
+/* Estilos para os links dentro da lista do rodapé */
 .footer .list li a {
-  font-size: 1.6rem;
-  color: var(--text-color);
-  font-weight: 500;
-  transition: 0.3s ease-in-out;
+  font-size: 1.6rem; /* Tamanho da fonte */
+  color: var(--text-color); /* Cor do texto */
+  font-weight: 500; /* Peso da fonte */
+  transition: 0.3s ease-in-out; /* Transição suave para efeitos de hover */
 }
 
+/* Efeito de hover para os links da lista do rodapé */
 .footer .list li a:hover {
-  color: var(--main-color);
+  color: var(--main-color); /* Muda a cor do texto para a cor principal */
 }
 
+/* Animação Keyframes para o aparecimento de imagens/seções */
 @keyframes image-appear {
   from {
-    opacity: 0;
-    transform: translateY(100%);
+    opacity: 0; /* Começa totalmente transparente */
+    transform: translateY(100%); /* Começa 100% abaixo da posição final */
   }
 }
 
+/* Media Queries para telas com largura máxima de 1200px */
 @media (max-width: 1200px) {
-
   html {
-    font-size: 50%;
+    font-size: 50%; /* Reduz o tamanho da fonte base */
   }
 
   .header {
-    padding: 2rem 5% 2rem;
+    padding: 2rem 5% 2rem; /* Ajusta o padding do cabeçalho */
   }
 
   .navbar a {
-    margin-left: 2.5rem;
+    margin-left: 2.5rem; /* Ajusta a margem entre os links da nav */
   }
 
   section {
-    padding: 8rem 5% 4rem;
+    padding: 8rem 5% 4rem; /* Ajusta o padding das seções */
   }
 
   .home {
-    gap: 8rem;
+    gap: 8rem; /* Ajusta o espaçamento na seção home */
   }
 
   .home-content h1 {
-    font-size: 6rem;
+    font-size: 6rem; /* Ajusta o tamanho da fonte do h1 na home */
   }
 
   .home-content h3 {
-    font-size: 3rem;
+    font-size: 3rem; /* Ajusta o tamanho da fonte do h3 na home */
   }
 
   .home-img img {
-    width: 40vw;
+    width: 40vw; /* Ajusta a largura da imagem de perfil */
   }
 
   .projects .content {
-    max-width: 900px;
-    gap: 2rem;
+    max-width: 900px; /* Ajusta a largura máxima do conteúdo de projetos */
+    gap: 2rem; /* Ajusta o espaçamento entre projetos */
   }
 
   .technologies {
-    max-width: 700px;
-    gap: 3rem;
+    max-width: 700px; /* Ajusta a largura máxima da seção de tecnologias */
+    gap: 3rem; /* Ajusta o espaçamento entre tecnologias */
   }
 
   .projects .content {
-    justify-items: center;
-    display: grid;
-    align-content: center;
-    align-items: center;
-    margin-left: auto;
+    justify-items: center; /* Centraliza itens na grid */
+    display: grid; /* Usa grid */
+    align-content: center; /* Centraliza o conteúdo da grid */
+    align-items: center; /* Alinha itens verticalmente */
+    margin-left: auto; /* Ajusta a margem para centralização */
   }
 
   .projects .heading {
-    margin-bottom: 12rem;
+    margin-bottom: 12rem; /* Ajusta a margem inferior do título de projetos */
   }
 
   .project {
-    margin-bottom: 3rem;
+    margin-bottom: 3rem; /* Ajusta a margem inferior de cada projeto */
   }
 
+  /* Ajuste da animação slideUp para a nova altura de linha */
   @keyframes slideUp {
     0%, 22% {
       transform: translateY(0);
@@ -582,122 +631,124 @@ section.projects {
   }
 }
 
+/* Media Queries para telas com largura máxima de 991px (geralmente tablets) */
 @media (max-width: 991px) {
   body {
-    background-image: url(assets/bg-green-mobile.png);
+    background-image: url(assets/bg-green-mobile.png); /* Muda a imagem de fundo para mobile */
   }
 
   html {
-    font-size: 57%;
+    font-size: 57%; /* Ajusta o tamanho da fonte base */
   }
 
   .header {
-    padding: 2rem 3% 2rem;
+    padding: 2rem 3% 2rem; /* Ajusta o padding do cabeçalho */
   }
-  
+
   section {
-    margin-inline: 5rem;
-    padding: 12rem 3% 4rem;
+    margin-inline: 5rem; /* Adiciona margem horizontal nas seções */
+    padding: 12rem 3% 4rem; /* Ajusta o padding das seções */
   }
 
   .home {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4rem;
+    display: flex; /* Usa flexbox */
+    align-items: center; /* Alinha itens ao centro */
+    justify-content: center; /* Centraliza itens */
+    gap: 4rem; /* Ajusta o espaçamento */
   }
   .home-content {
-    margin-right: 12rem;
+    margin-right: 12rem; /* Ajusta a margem direita do conteúdo da home */
   }
 
   .home-content h3 {
-      font-size: 2.8rem;
+    font-size: 2.8rem; /* Ajusta o tamanho da fonte do h3 na home */
   }
 
   .home-img img {
-    width: 35vw;
+    width: 35vw; /* Ajusta a largura da imagem de perfil */
   }
 
   h3 div {
-    height: 8rem;
+    height: 8rem; /* Ajusta a altura da div de animação de texto */
   }
 
   .social-icons a {
-    width: 6rem;
-    height: 6rem;
-    font-size: 3.5rem;
+    width: 6rem; /* Ajusta a largura dos ícones sociais */
+    height: 6rem; /* Ajusta a altura dos ícones sociais */
+    font-size: 3.5rem; /* Ajusta o tamanho da fonte dos ícones sociais */
   }
 
   .btn-group .btn {
-    display: flex;
-    justify-content: center;
-    width: 100%; 
-    max-width: 270px;
-    font-size: 2.5rem;
+    display: flex; /* Usa flexbox */
+    justify-content: center; /* Centraliza o botão */
+    width: 100%; /* Ocupa 100% da largura */
+    max-width: 270px; /* Largura máxima */
+    font-size: 2.5rem; /* Ajusta o tamanho da fonte do botão */
   }
 
   .technologies {
-    padding: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
-    max-width: 100%;
+    padding: 2rem; /* Ajusta o padding das tecnologias */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Ajusta as colunas da grid de tecnologias */
+    max-width: 100%; /* Ocupa 100% da largura */
   }
-  
+
   .projects .content {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    max-width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajusta as colunas da grid de projetos */
+    max-width: 100%; /* Ocupa 100% da largura */
   }
   .project {
-      max-width: 100%; 
+    max-width: 100%; /* Ocupa 100% da largura */
   }
 
   .input-group-2 .btn {
-    display: flex;
-    justify-content: center;
-    width: 100%; 
-    max-width: 270px;
-    font-size: 2.5rem !important;
-    margin: auto;
+    display: flex; /* Usa flexbox */
+    justify-content: center; /* Centraliza o botão */
+    width: 100%; /* Ocupa 100% da largura */
+    max-width: 270px; /* Largura máxima */
+    font-size: 2.5rem !important; /* Ajusta o tamanho da fonte do botão */
+    margin: auto; /* Centraliza horizontalmente */
   }
 
   .contact form {
-    display: block;
+    display: block; /* Muda para exibição em bloco */
   }
   .contact form .form-row {
-      flex-direction: column;
-      gap: 1.5rem; 
+    flex-direction: column; /* Organiza em coluna (se houvesse form-row) */
+    gap: 1.5rem; /* Espaçamento */
   }
   .contact form .form-field-wrapper {
-      flex: 1 1 100%;
-      min-width: unset;
+    flex: 1 1 100%; /* Ajusta o flexbox */
+    min-width: unset; /* Remove largura mínima */
   }
   .contact form .inputs {
-      padding: 1.5rem;
-      font-size: 1.6rem;
+    padding: 1.5rem; /* Ajusta o padding dos inputs */
+    font-size: 1.6rem; /* Ajusta o tamanho da fonte dos inputs */
   }
   .contact form textarea {
-      min-height: 120px;
+    min-height: 120px; /* Altura mínima do textarea */
   }
   .contact form .btn {
-      padding: 0.8rem 2rem; 
-      font-size: 1.4rem;
+    padding: 0.8rem 2rem; /* Ajusta o padding do botão */
+    font-size: 1.4rem; /* Ajusta o tamanho da fonte do botão */
   }
   .footer .social a {
-    width: 3.5rem;
-    height: 3.5rem;
-    font-size: 1.8rem;
-    margin: 1.5rem 0.5rem 1.5rem 0;
+    width: 3.5rem; /* Ajusta a largura dos ícones sociais no rodapé */
+    height: 3.5rem; /* Ajusta a altura dos ícones sociais no rodapé */
+    font-size: 1.8rem; /* Ajusta o tamanho da fonte dos ícones sociais no rodapé */
+    margin: 1.5rem 0.5rem 1.5rem 0; /* Ajusta as margens dos ícones sociais no rodapé */
   }
   .footer .list {
-    display: flex;
-    gap: 0.8rem;
+    display: flex; /* Usa flexbox */
+    gap: 0.8rem; /* Ajusta o espaçamento da lista do rodapé */
   }
   .footer .list li a {
-    font-size: 1.4rem;
+    font-size: 1.4rem; /* Ajusta o tamanho da fonte dos links da lista do rodapé */
   }
   .footer .copyright {
-    font-size: 1.2rem;
+    font-size: 1.2rem; /* Ajusta o tamanho da fonte do copyright */
   }
 
+  /* Ajuste da animação slideUp para telas de 991px */
   @keyframes slideUp {
     0%, 22% {
       transform: translateY(0);
@@ -714,69 +765,70 @@ section.projects {
   }
 }
 
+/* Media Queries para telas com largura máxima de 576px (geralmente smartphones) */
 @media (max-width: 576px) {
-
   html {
-    font-size: 55%;
+    font-size: 55%; /* Ajusta o tamanho da fonte base */
   }
 
   body {
-    margin-inline: 3rem;
+    margin-inline: 3rem; /* Adiciona margem horizontal ao corpo */
   }
 
   h3 div {
-    height: 4rem;
+    height: 4rem; /* Ajusta a altura da div de animação de texto */
   }
 
   .nav-logo {
-    display: none;
+    display: none; /* Oculta o logotipo e o ícone de menu em telas muito pequenas */
   }
 
   section,
   section.projects,
   section.skills {
-    padding: 2rem 2% 2rem;
-    min-height: unset;
-    margin-inline: 0;
+    padding: 2rem 2% 2rem; /* Ajusta o padding das seções */
+    min-height: unset; /* Remove altura mínima */
+    margin-inline: 0; /* Remove margem horizontal */
   }
 
   .home-content {
-    align-items: center;
-    margin: 0;
-    margin-top: 10rem;
+    align-items: center; /* Centraliza o conteúdo da home */
+    margin: 0; /* Remove margens */
+    margin-top: 10rem; /* Adiciona margem superior */
   }
 
   .home-img img {
-    display: none;
+    display: none; /* Oculta a imagem de perfil na seção home */
   }
 
   .social-icons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-inline: auto;
+    display: flex; /* Usa flexbox */
+    align-items: center; /* Alinha itens ao centro */
+    justify-content: center; /* Centraliza itens */
+    margin-inline: auto; /* Centraliza horizontalmente */
   }
 
   .social-icons a {
-    margin-top: 8rem !important;
-    width: 8rem;
-    height: 8rem;
-    font-size: 3.5rem;
-    margin: 2.5rem 1.5rem 2.5rem;
+    margin-top: 8rem !important; /* Ajusta a margem superior dos ícones sociais */
+    width: 8rem; /* Ajusta a largura dos ícones sociais */
+    height: 8rem; /* Ajusta a altura dos ícones sociais */
+    font-size: 3.5rem; /* Ajusta o tamanho da fonte dos ícones sociais */
+    margin: 2.5rem 1.5rem 2.5rem; /* Ajusta as margens */
   }
 
-  .btn-group .btn{
-    margin-top:6rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-inline: auto;
-    gap: 1rem;
-    width: 100%;
-    font-size: 3rem;
-    padding: 3rem 2.8rem;
+  .btn-group .btn {
+    margin-top: 6rem; /* Ajusta a margem superior do botão */
+    display: flex; /* Usa flexbox */
+    justify-content: center; /* Centraliza o botão */
+    align-items: center; /* Alinha o botão ao centro */
+    margin-inline: auto; /* Centraliza horizontalmente */
+    gap: 1rem; /* Espaçamento */
+    width: 100%; /* Ocupa 100% da largura */
+    font-size: 3rem; /* Ajusta o tamanho da fonte do botão */
+    padding: 3rem 2.8rem; /* Ajusta o padding do botão */
   }
 
+  /* Ajuste da animação slideUp para telas de 576px */
   @keyframes slideUp {
     0%, 22% {
       transform: translateY(0);
@@ -790,14 +842,12 @@ section.projects {
     100% {
       transform: translateY(-12.6rem);
     }
-  } 
-
-}
-
-@media (max-width: 430px) {
-
-  html {
-    font-size: 50%;
   }
 }
 
+/* Media Queries para telas com largura máxima de 430px */
+@media (max-width: 430px) {
+  html {
+    font-size: 50%; /* Reduz ainda mais o tamanho da fonte base */
+  }
+}
