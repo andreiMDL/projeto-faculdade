@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyPortfolio-Contato</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="nav-logo">
+      <i class='bx bx-menu' id="menu-icon"></i>
+      <a href="#home" class="logo">Andrei
+        <span class="highlight">Moda</span>
+      </a>
+    </div>
+    <nav class="navbar">
+      <a href="./home.html">Home</a>
+      <a href="./habilidades.html">Habilidades</a>
+      <a href="./projetos.html">Projetos</a>
+      <a href="./contato.html" class="active">Contato</a>
+    </nav>
+  </header>
+  <section class="contact" id="contact">
+    <h2 class="heading">Fale <span class="highlight">Comigo</span></h2>
+    <form id="form" action="">
+      <div class="input-group">
+        <div class="input-box">
+          <div class="input-field">
+            <input type="text" placeholder="Nome Completo" class="inputs required" oninput="nameValidate()">
+            <span class="span-required error">Nome deve ter no mínimo 3 caracteres</span>
+          </div>
+          <div class="input-field">
+            <input type="email" placeholder="Email" class="inputs required" oninput="emailValidate()">
+            <span class="span-required error">Digite um email válido</span>
+          </div>
+          <div class="input-field">
+            <input type="number" placeholder="Telefone" class="inputs required" oninput="phoneValidate()">
+            <span class="span-required error">Digite um telefone válido</span>
+          </div>
+          <div class="input-field">
+            <input type="text" placeholder="Assunto" class="inputs required" oninput="subjectValidate()">
+            <span class="span-required error">O campo não pode ser vazio</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-group-2">
+        <div class="input-field">
+          <textarea class="inputs required" name="" id="" cols="30" rows="10" placeholder="Sua mensagem"
+            oninput="messageValidate()"></textarea>
+          <span class="span-required error">O campo não pode ser vazio</span>
+        </div>
+        <input type="submit" value="Enviar Mensagem" class="btn">
+      </div>
+    </form>
+  </section>
+  <footer class="footer">
+    <div class="social">
+      <a href="https://www.linkedin.com/in/andreimdl/" target="_blank" aria-label="LinkedIn Profile"><i
+          class="fa-brands fa-linkedin-in"></i></a>
+
+      <a href="https://github.com/andreiMDL" target="_blank" aria-label="GitHub Profile"><i
+          class="fa-brands fa-github"></i></a>
+
+      <a href="https://www.instagram.com/andreimdl/" target="_blank" aria-label="Instagram Profile"><i
+          class="fa-brands fa-instagram"></i></a>
+
+      <a href="mailto:andreimoda8@gmail.com" aria-label="Send an email"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+    <ul class="list">
+      <li>
+        <a href="#">FAQ</a>
+      </li>
+
+      <li>
+        <a href="#">Services</a>
+      </li>
+
+      <li>
+        <a href="#">About Me</a>
+      </li>
+
+      <li>
+        <a href="#">Contact</a>
+      </li>
+    </ul>
+    <p class="copyright">
+      © Andrei Moda de Lima || All rights reserved
+    </p>
+  </footer>
+</body>
+
+</html>
