@@ -72,3 +72,5 @@ Este projeto demonstra domínio de HTML, CSS e JavaScript, além de boas prátic
 ## 🚀 Acesse o projeto
 
 Clique aqui para visualizar o projeto online:
+👉 [MyPortfolio - Visualizar](https://projeto-faculdade-three.vercel.app/index.html)
+
